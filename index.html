@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marmitaria Sabor & Tradição | Chatbot Inteligente sem LLM</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Painel Lateral: Cardápio e Status da Sessão -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-icon">🍲</div>
+        <div>
+          <h1>Marmitaria Sabor & Arte</h1>
+          <span class="badge-tech">NLP Tradicional • Sem LLM</span>
+        </div>
+      </div>
+
+      <!-- Seletor do dia da semana -->
+      <div class="menu-control">
+        <label for="day-selector"><strong>📅 Dia do Cardápio:</strong></label>
+        <select id="day-selector">
+          <option value="segunda">Segunda-feira</option>
+          <option value="terca">Terça-feira</option>
+          <option value="quarta">Quarta-feira</option>
+          <option value="quinta">Quinta-feira</option>
+          <option value="sexta">Sexta-feira</option>
+          <option value="sabado">Sábado</option>
+          <option value="domingo">Domingo</option>
+        </select>
+      </div>
+
+      <!-- Vitrine de Produtos -->
+      <div class="menu-showcase">
+        <h2>Cardápio do Dia</h2>
+        <div id="menu-items-list" class="items-list">
+          <!-- Injetado via JS -->
+        </div>
+      </div>
+
+      <!-- Resumo do Carrinho -->
+      <div class="cart-summary-box">
+        <h3>🛒 Seu Carrinho</h3>
+        <div id="cart-items" class="cart-items-empty">Carrinho vazio</div>
+        <div class="cart-calc">
+          <div class="calc-row"><span>Subtotal:</span> <span id="cart-subtotal">R$ 0,00</span></div>
+          <div class="calc-row"><span>Taxa de Entrega:</span> <span id="cart-tax">R$ 5,00</span></div>
+          <div class="calc-row total"><span>Total:</span> <span id="cart-total">R$ 5,00</span></div>
+        </div>
+      </div>
+
+      <!-- Painel de Inspeção Técnica de NLP / Laya / Cossenos / Eliza -->
+      <div class="nlp-inspector">
+        <div class="inspector-header">
+          <span>⚙️ Inspetor NLP em Tempo Real</span>
+          <button id="toggle-inspector-btn" title="Expandir/Minimizar">▼</button>
+        </div>
+        <div id="inspector-content" class="inspector-body">
+          <div><strong>Último Pré-Processamento:</strong> <span id="nlp-tokens">-</span></div>
+          <div><strong>Motor de Decisão (Laya Engine):</strong> <span id="nlp-layer">-</span></div>
+          <div><strong>Similaridade Cosseno:</strong> <span id="nlp-cosine">-</span></div>
+          <div><strong>Regra Eliza / Regex:</strong> <span id="nlp-eliza">-</span></div>
+          <div><strong>Status Guardrails:</strong> <span id="nlp-guardrails" class="status-safe">SEGURO</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Área Central: Chat -->
+    <main class="chat-main">
+      <header class="chat-header">
+        <div class="bot-status">
+          <div class="avatar">🤖</div>
+          <div>
+            <h2>Dona Maria Bot (Atendente Virtual)</h2>
+            <p class="status-indicator"><span class="dot"></span> Online • Eliza 1960 + NLP Cosine & Laya Decision Layer</p>
+          </div>
+        </div>
+        <div class="quick-actions">
+          <button class="quick-btn" data-text="Ver cardápio de hoje">📋 Ver Cardápio</button>
+          <button class="quick-btn" data-text="Qual o preço da marmita de bife?">💰 Preços</button>
+          <button class="quick-btn" data-text="Quero uma marmita de bife de vaca bem passado e sem cebola">🥩 Pedido c/ Customização</button>
+          <button class="quick-btn" data-text="Qual o valor total da entrega?">🚚 Valor Total</button>
+        </div>
+      </header>
+
+      <!-- Histórico de Mensagens -->
+      <div id="chat-messages" class="chat-messages">
+        <!-- Mensagem de Boas-Vindas inicial gerada por JS -->
+      </div>
+
+      <!-- Formulário de Envio -->
+      <footer class="chat-footer">
+        <form id="chat-form">
+          <input 
+            type="text" 
+            id="chat-input" 
+            placeholder="Digite seu pedido (ex: 'Quero um bife acebolado ao ponto sem sal', 'ver cardápio')..." 
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="send-btn" class="send-button">
+            <span>Enviar</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+        </form>
+        <div class="input-helper">
+          💡 Experimente pedir remoção de temperos (ex: <em>"sem cebola"</em>, <em>"pouco sal"</em>) ou ponto de carne (ex: <em>"mal passada"</em>, <em>"bem passada"</em>).
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
